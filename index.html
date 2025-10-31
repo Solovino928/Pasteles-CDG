@@ -32,13 +32,13 @@
   <button id="checkout-button">Verificar ahora</button>
 
   <script>
-    const stripe = Stripe("pk_test_51SO62pHETNgs1dw76fgAqZNzKkNbE83uP3EJM3Kg5vZCHl3H25NC1wMtFYPwpcNCbzr2Q7GVspDzOVM1kTS7kQDM00SfvcUg9K"); // <-- tu clave pública de Stripe
+    const stripe = Stripe("pk_live_51SO62dQkdvKzIg8VeQ0JaeuNptpnN8cbSKJcPl3nWZfkgQuPoA9fLPg8XUQtjjeVXCYdxR6RynqXkOvqQNLJYGi300w9YwXXcU"); // <-- tu clave pública de Stripe
 
     const checkoutButton = document.getElementById("checkout-button");
     checkoutButton.addEventListener("click", () => {
       stripe.redirectToCheckout({
         lineItems: [
-          { price: "prod_TKnyzoadOeeDPv", quantity: 1 } // <-- tu ID de precio
+          { price: "price_1SOAPgQkdvKzIg8Vp5ezaOqM", quantity: 1 } // <-- tu ID de precio
         ],
         mode: "payment",
    successUrl: "https://solovino928.github.io/Pasteles-CDG/success.html",
