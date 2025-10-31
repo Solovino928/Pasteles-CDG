@@ -36,13 +36,24 @@
 
     const checkoutButton = document.getElementById("checkout-button");
     checkoutButton.addEventListener("click", () => {
+      checkoutButton.disabled = true;
       stripe.redirectToCheckout({
         lineItems: [
           { price: "price_1SOAPgQkdvKzIg8Vp5ezaOqM", quantity: 1 } // <-- tu ID de precio
         ],
         mode: "payment",
-   successUrl: "https://solovino928.github.io/Pasteles-CDG/success.html",
-   cancelUrl:  "https://solovino928.github.io/Pasteles-CDG/cancel.html",
+        successUrl: "https://solovino928.github.io/Pasteles-CDG/success.html",
+        cancelUrl:  "https://solovino928.github.io/Pasteles-CDG/cancel.html",
+      }).then(function(result) {
+        if (result.error) {
+          alert(result.error.message);
+          checkoutButton.disabled = false;
+        }
+      }).catch(function(err) {
+        console.error(err);
+        alert("Error al redirigir a Stripe.");
+        checkoutButton.disabled = false;
+      });
     });
   </script>
 </body>
