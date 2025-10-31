@@ -32,13 +32,13 @@
   <button id="checkout-button">Verificar ahora</button>
 
   <script>
-    const stripe = Stripe("pk_test_xxx"); // <-- tu clave pública de Stripe
+    const stripe = Stripe("pk_test_51SO62pHETNgs1dw76fgAqZNzKkNbE83uP3EJM3Kg5vZCHl3H25NC1wMtFYPwpcNCbzr2Q7GVspDzOVM1kTS7kQDM00SfvcUg9K"); // <-- tu clave pública de Stripe
 
     const checkoutButton = document.getElementById("checkout-button");
     checkoutButton.addEventListener("click", () => {
       stripe.redirectToCheckout({
         lineItems: [
-          { price: "price_xxx", quantity: 1 } // <-- tu ID de precio
+          { price: "10", quantity: 1 } // <-- tu ID de precio
         ],
         mode: "payment",
         successUrl: "https://tuusuario.github.io/verificar-tarjeta/success.html",
