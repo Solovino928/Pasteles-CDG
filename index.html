@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificación de Tarjeta</title>
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f5f5f5;
+    }
+    button {
+      background-color: #6772e5;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5469d4;
+    }
+  </style>
+</head>
+<body>
+  <h1>Verificación de Tarjeta</h1>
+  <p>Se cobrará un monto único de <strong>$10 USD</strong> para verificar la tarjeta.</p>
+  <button id="checkout-button">Verificar ahora</button>
+
+  <script>
+    const stripe = Stripe("pk_test_xxx"); // <-- tu clave pública de Stripe
+
+    const checkoutButton = document.getElementById("checkout-button");
+    checkoutButton.addEventListener("click", () => {
+      stripe.redirectToCheckout({
+        lineItems: [
+          { price: "price_xxx", quantity: 1 } // <-- tu ID de precio
+        ],
+        mode: "payment",
+        successUrl: "https://tuusuario.github.io/verificar-tarjeta/success.html",
+        cancelUrl: "https://tuusuario.github.io/verificar-tarjeta/cancel.html",
+      });
+    });
+  </script>
+</body>
+</html>
