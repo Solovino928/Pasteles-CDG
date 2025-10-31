@@ -38,7 +38,7 @@
     checkoutButton.addEventListener("click", () => {
       stripe.redirectToCheckout({
         lineItems: [
-          { price: "10", quantity: 1 } // <-- tu ID de precio
+          { price: "prod_TKnyzoadOeeDPv", quantity: 1 } // <-- tu ID de precio
         ],
         mode: "payment",
         successUrl: "https://tuusuario.github.io/verificar-tarjeta/success.html",
